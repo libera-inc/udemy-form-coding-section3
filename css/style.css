@@ -1,3 +1,50 @@
+:root {
+    --color-font-base: #4c566a;
+    --color-primary: #5e81ac;
+    --color-white: #fff;
+    --color-black: #424242;
+    --color-black-hover: #2b2b2b;
+    --color-form-border: #d8dee9;
+    --color-form-placeholder: #d8dee9;
+    --color-form-disabled: #b4b4b4;
+    --color-outline-focus-inside: #5e81ac;
+    --color-outline-focus-outside: #d8dee9;
+    --base-line-height: 1.7;
+    --base-font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --base-font-size: 18px;
+    }
+}
+
+body {
+    line-height: var(--base-line-height);
+    font-size: var(--base-font-size);
+    color: var(--color-font-base);
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+.u-visually-hidden {
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    padding: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    margin: -1px !important;
+}
+
+.container {
+    width: min(90%, 760px);
+    margin-inline: auto;
+    padding: 80px 0;
+}
+
 .title {
     font-size: 24px;
     font-weight: bold;
