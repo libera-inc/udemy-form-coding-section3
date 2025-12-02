@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Figmaからのコーディング(タイトル編)</title>
+        <meta name="description" content="ページの説明" />
+        <meta name="format-detection" content="telephone=no" />
+
+        <!-- font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet" />
+
+        <!-- css -->
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/common.css" />
+        <link rel="stylesheet" href="css/style.css" />
+
+        <!-- js -->
+        <script src="js/main.js" defer></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="title">フォームのCSSカスタマイズ</h1>
+
+            <form class="form" method="post" action="">
+                <!-- text -->
+                <div class="form-item">
+                    <label for="name" class="form-label">input(type="text")</label>
+                    <input type="text" name="name" id="name" placeholder="山田 太郎" class="c-form-text" />
+                </div>
+
+                <div class="form-item">
+                    <label for="email" class="form-label">input(type="email")</label>
+                    <input type="email" name="email" id="email" placeholder="taro@libera-inc.co.jp" class="c-form-text" />
+                </div>
+
+                <div class="form-item">
+                    <label for="tel" class="form-label">input(type="tel")</label>
+                    <input type="tel" name="tel" id="tel" placeholder="0120-1234-5678" class="c-form-text" />
+                </div>
+
+                <div class="form-item">
+                    <label for="url" class="form-label">input(type="url")</label>
+                    <input type="url" name="url" id="url" placeholder="https://libera-inc.co.jp" class="c-form-text" />
+                </div>
+
+                <div class="form-item">
+                    <label for="number" class="form-label">input(type="number")</label>
+                    <input type="number" name="number" id="number" placeholder="100" class="c-form-text" />
+                </div>
+
+                <div class="form-item">
+                    <label for="password" class="form-label">input(type="password")</label>
+                    <input type="password" name="password" id="password" placeholder="password" class="c-form-text" />
+                </div>
+
+                <!-- textarea -->
+                <div class="form-item">
+                    <label for="contact" class="form-label">textarea</label>
+                    <textarea name="contact" id="contact" placeholder="お問い合わせ内容を記入してください。" class="c-form-text c-form-text--textarea"></textarea>
+                </div>
+
+                <!-- select -->
+                <div class="form-item">
+                    <label for="select" class="form-label">select / option</label>
+                    <div class="c-form-select-wrap">
+                        <select name="select" id="select" class="c-form-select">
+                            <option value="option01">option01</option>
+                            <option value="option02">option02</option>
+                            <option value="option03">option03</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- radio -->
+                <fieldset class="form-item">
+                    <legend class="form-label">input(type="radio")</legend>
+                    <div class="form-option-wrap">
+                        <input type="radio" name="Radio01" value="Radio01" class="c-form-option c-form-option--radio u-visually-hidden" id="Radio01" />
+                        <label class="c-form-option-text c-form-option-text--radio" for="Radio01">Radio01</label>
+
+                        <input type="radio" name="Radio01" value="Radio02" class="c-form-option c-form-option--radio u-visually-hidden" id="Radio02" />
+                        <label class="c-form-option-text c-form-option-text--radio" for="Radio02">Radio02</label>
+                    </div>
+                </fieldset>
+
+                <!-- checkbox  -->
+                <fieldset class="form-item">
+                    <legend class="form-label">input(type="checkbox")</legend>
+                    <div class="form-option-wrap">
+                        <input type="checkbox" name="CheckBox01" value="CheckBox01" class="c-form-option c-form-option--checkbox u-visually-hidden" id="CheckBox01" />
+                        <label class="c-form-option-text c-form-option-text--checkbox" for="CheckBox01">CheckBox01</label>
+
+                        <input type="checkbox" name="CheckBox02" value="CheckBox02" class="c-form-option c-form-option--checkbox u-visually-hidden" id="CheckBox02" />
+                        <label class="c-form-option-text c-form-option-text--checkbox" for="CheckBox02">CheckBox02</label>
+                    </div>
+                </fieldset>
+
+                <!-- file -->
+                <div class="form-item">
+                    <label for="file" class="form-label">input(type="file")</label>
+                    <div class="c-form-file-wrap">
+                        <input type="file" name="file" id="file" class="c-form-file js-form-file u-visually-hidden" />
+                        <label for="file" class="c-form-file-upload-button">ファイルを選択</label>
+                        <p class="c-form-file-name js-form-file-name">選択されていません</p>
+                    </div>
+                </div>
+
+                <!-- button -->
+                <div class="form-item">
+                    <p class="form-label">button</p>
+                    <button class="c-button">送信する</button>
+                </div>
+
+                <!-- button disabled -->
+                <div class="form-item">
+                    <p class="form-label">button</p>
+                    <button class="c-button" disabled>送信する</button>
+                </div>
+
+                <!-- input(type="submit") -->
+                <div class="form-item">
+                    <p class="form-label">input(type="submit")</p>
+                    <input type="submit" name="button" value="送信する" class="c-button" aria-label="送信する" />
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
