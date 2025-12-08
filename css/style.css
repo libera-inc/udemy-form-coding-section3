@@ -74,14 +74,14 @@ body {
 .c-form-text {
     padding: 12px;
     border-radius: 8px;
-    box-shadow: 0 0 0 1px var(--color-form-border) inset;
-    outline: 0;
     width: 100%;
+    box-shadow: 0 0 0 1px var(--color-form-border);
+    outline: none;
 }
 
 .c-form-text::placeholder {
-    color: var(--color-form-placeholder);
     font-weight: bold;
+    color: var(--color-form-placeholder);
 }
 
 /* textarea固有のスタイル */
@@ -92,7 +92,7 @@ body {
 
 /* フォーカス時 */
 .c-form-text:focus {
-    box-shadow: 0 0 0 1px var(--color-outline-focus-inside) inset, 0 0 0 4px var(--color-outline-focus-outside);
+    box-shadow: 0 0 0 1px var(--color-outline-focus-inside), 0 0 0 4px var(--color-outline-focus-outside);
 }
 
 /* select */
@@ -104,26 +104,24 @@ body {
 .c-form-select-wrap::after {
     content: "";
     display: inline-block;
-    border-left: 2px solid var(--color-font-base);
-    border-bottom: 2px solid var(--color-font-base);
     width: 10px;
     height: 10px;
     position: absolute;
     right: 18px;
     top: 50%;
     translate: 0 -50%;
-    rotate: -45deg;
+    border-right: 2px solid var(--color-font-base);
+    border-bottom: 2px solid var(--color-font-base);
+    rotate: 45deg;
     pointer-events: none;
 }
 
 .c-form-select {
-    width: 100%;
     padding: 12px;
     border-radius: 8px;
-    box-shadow: 0 0 0 1px var(--color-form-border) inset;
-    cursor: pointer;
-    outline: 0;
-    font-weight: bold;
+    width: 100%;
+    box-shadow: 0 0 0 1px var(--color-form-border);
+    outline: none;
 }
 
 /* フォーカス時 */
@@ -137,17 +135,15 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 6px 32px;
-    margin-top: 8px;
 }
 
 .c-form-option-text {
     --radio-checkbox-size: 24px;
     display: inline-flex;
-    width: fit-content;
     font-weight: bold;
-    position: relative;
     gap: 6px;
-    cursor: pointer;
+    align-items: center;
+    word-break: break-all;
 }
 
 .c-form-option-text::before {
@@ -157,46 +153,53 @@ body {
     height: var(--radio-checkbox-size);
     box-shadow: 0 0 0 1px var(--color-form-border) inset;
     flex-shrink: 0;
-    translate: 0 calc((var(--base-font-size) * var(--base-line-height) - var(--radio-checkbox-size)) / 2);
-}
-
-.c-form-option:checked + .c-form-option-text {
-    color: var(--color-primary);
 }
 
 /* radio固有のスタイル */
-.c-form-option-text--radio::before {
+.c-form-option-text--radio:before {
     border-radius: 50%;
 }
 
 .c-form-option--radio:checked + .c-form-option-text--radio::before {
-    background-color: var(--color-white);
     border: calc(var(--radio-checkbox-size) / 4) solid var(--color-primary);
-    box-shadow: 0 0 0 1px transparent inset;
+    box-shadow: none;
+}
+
+.c-form-option--radio:checked + .c-form-option-text--radio {
+    color: var(--color-primary);
 }
 
 /* checkbox固有のスタイル */
+.c-form-option-text--checkbox {
+    position: relative;
+}
+
 .c-form-option-text--checkbox::before {
     border-radius: 4px;
 }
 
 .c-form-option--checkbox:checked + .c-form-option-text--checkbox::before {
     background-color: var(--color-primary);
-    box-shadow: 0 0 0 1px var(--color-primary) inset;
+    box-shadow: 0 0 0 var(--color-primary) inset;
 }
 
 .c-form-option--checkbox:checked + .c-form-option-text--checkbox::after {
     content: "";
     display: inline-block;
-    position: absolute;
     width: var(--radio-checkbox-size);
     height: var(--radio-checkbox-size);
-    left: 0;
-    top: calc((var(--base-font-size) * var(--base-line-height) - var(--radio-checkbox-size)) / 2);
-    background-image: url("../img/icon-check.svg");
+    background-image: url(../img/icon-check.svg);
     background-size: contain;
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    translate: 0 -50%;
+}
+
+.c-form-option--checkbox:checked + .c-form-option-text--checkbox {
+    color: var(--color-primary);
 }
 
 /* フォーカス時 */
@@ -205,11 +208,7 @@ body {
 }
 
 .c-form-option:focus-visible + .c-form-option-text::before {
-    box-shadow: 0 0 0 1px var(--color-outline-focus-inside) inset, 0 0 0 3px var(--color-outline-focus-outside);
-}
-
-.c-form-option:checked:focus-visible + .c-form-option-text::before {
-    box-shadow: 0 0 0 0 transparent inset, 0 0 0 3px var(--color-outline-focus-outside);
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 3px var(--color-outline-focus-outside);
 }
 
 /* file */
@@ -227,10 +226,9 @@ body {
     background-color: var(--color-black);
     color: var(--color-white);
     border-radius: 4px;
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
     transition: background-color 0.3s;
-    font-size: 16px;
 }
 
 @media (any-hover: hover) {
@@ -239,14 +237,14 @@ body {
     }
 }
 
-/* フォーカス時 */
-.c-form-file:focus-visible + .c-form-file-upload-button {
-    box-shadow: 0 0 0 1px var(--color-outline-focus-inside) inset, 0 0 0 4px var(--color-outline-focus-outside);
-    background-color: var(--color-black-hover);
+.c-form-file-name {
+    font-size: 16px;
 }
 
-.c-form-file-name {
-    font-size: 14px;
+/* フォーカス時 */
+.c-form-file:focus-visible + .c-form-file-upload-button {
+    background-color: var(--color-black-hover);
+    box-shadow: 0 0 0 1px var(--color-outline-focus-inside), 0 0 0 4px var(--color-outline-focus-outside);
 }
 
 /* button */
@@ -258,8 +256,9 @@ body {
     padding: 14px 24px;
     font-weight: bold;
     border-radius: 100vh;
+    outline: none;
     transition: background-color 0.3s;
-    outline: 0;
+    cursor: pointer;
 }
 
 @media (any-hover: hover) {
@@ -268,15 +267,10 @@ body {
     }
 }
 
-/* full-width */
-.c-button.--full-width {
-    width: 100%;
-}
-
 /* フォーカス時 */
 .c-button:focus-visible {
-    box-shadow: 0 0 0 1px var(--color-outline-focus-inside) inset, 0 0 0 4px var(--color-outline-focus-outside);
     background-color: var(--color-black-hover);
+    box-shadow: 0 0 0 1px var(--color-outline-focus-inside), 0 0 0 4px var(--color-outline-focus-outside);
 }
 
 /* disabled */
